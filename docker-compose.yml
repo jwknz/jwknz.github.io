@@ -54,9 +54,10 @@ services:
       VIRTUAL_HOST: "jwk.nz"
       LETSENCRYPT_HOST: "jwk.nz"
       LETSENCRYPT_EMAIL: "jwkranenburg@icloud.com"
+    working_dir: /app
     command: "npm start"
     volumes:
-      - /WEBSERVER/content/jwknz:/usr/local/apache2/htdocs
+      - /root/jwknz.github.io:/app
       
 volumes:
   data-store:
