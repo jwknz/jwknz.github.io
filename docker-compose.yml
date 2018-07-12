@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+  proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80" 
+      - "443:443"
+    volumes: 
+      - ${PWD}/certs:/etc/nginx/certs:ro
+      - data-store:/etc/nginx/vhost.d 
+      - data-store:/usr/share/nginx/html 
+      - /var/run/docker.sock:/tmp/docker.sock:ro 
+    labels: 
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    depends_on: 
+      - proxy
+    volumes: 
+      - ${PWD}/certs:/etc/nginx/certs:rw
+      - data-store:/etc/nginx/vhost.d 
+      - data-store:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro 
+
+  web1:
+    image: httpd:2.2.34-alpine
+    container_name: web1
+    ports: 
+      - "80"
+      - "443"
+    depends_on: 
+      - letsencrypt
+      - proxy
+    environment:
+      VIRTUAL_HOST: "web1.jwk.nz"
+      LETSENCRYPT_HOST: "$jwk.nz"
+      LETSENCRYPT_EMAIL: "jwkranenburg@icloud.com"
+    volumes:
+      - /WEBSERVER/content/web1:/usr/local/apache2/htdocs
+
+  jwknz:
+    image: 10.6.0-alpine
+    container_name: jwknz_cv
+    ports: 
+      - "80"
+      - "443"
+      - "3000"
+    depends_on: 
+      - letsencrypt
+      - proxy
+    environment:
+      VIRTUAL_HOST: "jwk.nz"
+      LETSENCRYPT_HOST: "jwk.nz"
+      LETSENCRYPT_EMAIL: "jwkranenburg@icloud.com"
+    volumes:
+      - /WEBSERVER/content/jwknz:/usr/local/apache2/htdocs
+      
+volumes:
+  data-store:
+
