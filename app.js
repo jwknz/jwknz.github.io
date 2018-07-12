@@ -8,7 +8,7 @@ const { StringDecoder } = require('string_decoder');
 const decoder = new StringDecoder('utf8');
 const { minify } = require('html-minifier');
 
-const port = 80;
+const port = 3000;
 
 app.listen(port, console.log(`Server listening on port ${port}....`));
 

@@ -55,7 +55,7 @@ services:
       LETSENCRYPT_HOST: "jwk.nz"
       LETSENCRYPT_EMAIL: "jwkranenburg@icloud.com"
     working_dir: /app
-    command: "npm start"
+    command: "node app"
     volumes:
       - /root/jwknz.github.io:/app
       
