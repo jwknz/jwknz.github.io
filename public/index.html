@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/grids.css">
+    <title>Jeff Kranenburg</title>
+</head>
+<body>
+    
+    <div class="cols">
+        <div class="col col00">
+            <div class="pos pos1">
+                <img src="/public/images/mount_banner.jpg" alt="the mount" >
+            </div>
+            <div class="pos pos2">
+                <h2>Hi, I am</h2>
+                <h1>Jeffrey Kranenburg</h1>
+            </div>
+        </div>
+        <div class="col col01">
+            <div class="leftcols lc01">
+                <img class="profile" src="/public/images/me4-square.png" alt="jeff">
+            </div>
+            <div class="leftcols lc02">
+                <div class="social social01">
+                    <a href="https://twitter.com/jwknz" target="_blank"><i class="fab fa-twitter" >&nbsp;</i></a>
+                </div>
+                <div class="social social02">
+                    <a href="https://linkedin.com/in/jwknz" target="_blank"><i class="fab fa-linkedin-in" >&nbsp;</i></a>
+                </div>
+                <div class="social social03">
+                    <a href="https://github.com/jwknz" target="_blank"><i class="fab fa-github" >&nbsp;</i></a>
+                </div>
+                <div class="social social04">
+                    <a href="https://github.com/bcsjk11" target="_blank"><i class="fab fa-github-alt" >&nbsp;</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col col02" id="content"></div>
+        <div class="col col03">
+            <h1>Quick Links</h1>
+            <a href="https://cl.ly/2w432S2N3Y2Q/download/CV2018.pdf" target="_blank"><button class="btn-primary">Download CV</button></a>
+            <br>
+            <br>
+            <h1>Classes on Youtube</h1>
+            <a href="https://www.youtube.com/playlist?list=PLqx68Fe1aDZt4TvceIkCL-EC1_EXHG9HV" target="_blank"><button class="btn-warning">Basic Programming</button></a>
+            <a href="https://www.youtube.com/playlist?list=PLqx68Fe1aDZtkG9iHDhI8QTSM5dWL4PUq" target="_blank"><button class="btn-warning">PHP PDO + MySQL</button></a>
+            <a href="https://www.youtube.com/playlist?list=PLqx68Fe1aDZu7erLUqiSxQkHH3M5Vu8IB" target="_blank"><button class="btn-warning">LV 6 Web Class</button></a>
+            <br>
+            <br>
+            <h1>I write on Medium</h1>
+            <a href="https://medium.com/@jeff.kranenburg/ssh-keys-use-cases-and-working-with-their-limitations-75cda741ce7c" target="_blank"><button class="btn-danger">SSH Keys on Medium</button></a>
+        </div>
+    </div>
+
+    <script src="/dist/assets/bundle.js"></script>
+
+    <script>
+    
+        fetch('/text')
+        .then(res => res.json())
+        .then((data) => document.querySelector('#content').innerHTML = data.mytext);
+    
+    </script>
+</body>
+</html>

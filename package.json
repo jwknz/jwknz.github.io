@@ -1,0 +1,58 @@
+{
+  "name": "jwknz",
+  "version": "1.0.0",
+  "description": "JWKNZ portfolio",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack && nodemon",
+    "nodemon" : "nodemon",
+    "wp": "./node_modules/.bin/webpack",
+    "wps": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jwknz.github.io"
+  },
+  "keywords": [
+    "jwknz",
+    "portfolio",
+    "landing",
+    "page",
+    "online",
+    "business",
+    "card"
+  ],
+  "author": "Jeffrey Kranenburg",
+  "license": "ISC",
+  "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "autoprefixer": "^7.2.6",
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap": "^4.1.1",
+    "browserslist": "^4.0.0",
+    "css-loader": "^1.0.0",
+    "cssnano": "^4.0.0",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "html-minifier": "^3.5.18",
+    "imports-loader": "^0.8.0",
+    "jquery": "^3.3.1",
+    "json-loader": "^0.5.7",
+    "popper.js": "^1.14.3",
+    "postcss": "^6.0.23",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-grid-kiss": "^2.0.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "showdown": "^1.8.6",
+    "string_decoder": "^1.1.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
