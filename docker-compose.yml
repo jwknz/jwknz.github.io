@@ -54,6 +54,7 @@ services:
       VIRTUAL_HOST: "jwk.nz"
       LETSENCRYPT_HOST: "jwk.nz"
       LETSENCRYPT_EMAIL: "jwkranenburg@icloud.com"
+    command: "npm start"
     volumes:
       - /WEBSERVER/content/jwknz:/usr/local/apache2/htdocs
       
