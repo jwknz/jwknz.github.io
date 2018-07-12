@@ -4,7 +4,8 @@
   "description": "JWKNZ portfolio",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/webpack && nodemon",
+    "start": "node app",
+    "start-dev": "./node_modules/.bin/webpack && nodemon",
     "nodemon" : "nodemon",
     "wp": "./node_modules/.bin/webpack",
     "wps": "webpack-dev-server"
