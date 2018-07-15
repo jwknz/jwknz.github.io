@@ -16,11 +16,11 @@ services:
     ports: 
       - "80"
       - "443"
-      - "3000"
+      - "3000"=
     working_dir: /app
-    command: "node app"
+    command: "npm start"
     volumes:
-      - ${PWD}:/app
+      - /root/jwknz.github.io:/app
       
 volumes:
   data-store:

@@ -6,6 +6,7 @@ services:
     ports:
       - "80:80" 
       - "443:443"
+      - "3000:3000"
     volumes: 
       - ${PWD}/certs:/etc/nginx/certs:ro
       - data-store:/etc/nginx/vhost.d 
@@ -58,6 +59,39 @@ services:
     command: "node app"
     volumes:
       - /root/jwknz.github.io:/app
+
+  100days:
+    image: thecodingmachine/php:7.2-v1-apache-node10
+    container_name: 100days
+    ports: 
+      - "80"
+      - "443"
+      - "3000"
+    depends_on: 
+      - letsencrypt
+      - proxy
+      - jwknz_mysql
+    environment:
+      VIRTUAL_HOST: "100days.jwk.nz"
+      LETSENCRYPT_HOST: "$jwk.nz"
+      LETSENCRYPT_EMAIL: "jwkranenburg@icloud.com"
+    volumes:
+      - /content/100days:/usr/local/apache2/htdocs
+
+  mysql:
+    image: mysql:5.7.20
+    container_name: jwknz_mysql
+    depends_on: 
+      - letsencrypt
+      - proxy
+    ports:
+      - "3306"
+    volumes:
+      - /databases/mysqldb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "1-S3rv3-the-L0rd1"
+      MYSQL_DATABASE: "phpmyadmin"
+
       
 volumes:
   data-store:
